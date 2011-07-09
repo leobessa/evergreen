@@ -21,6 +21,7 @@ module Evergreen
             set :root, File.expand_path('.', File.dirname(__FILE__))
             set :public, File.expand_path(File.join(suite.root, Evergreen.public_dir), File.dirname(__FILE__))
 
+            helpers Sinatra::ContentFor2
             helpers do
               def url(path)
                 request.env['SCRIPT_NAME'].to_s + path.to_s
@@ -37,6 +38,7 @@ module Evergreen
               @spec = suite.get_spec(name)
               @js_spec_helper = suite.get_spec('spec_helper.js')
               @coffee_spec_helper = suite.get_spec('spec_helper.coffee')
+              instance_eval &Evergreen.before_each if Evergreen.before_each
               erb :spec
             end
           end

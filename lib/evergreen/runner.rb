@@ -66,6 +66,11 @@ module Evergreen
         end
       end
 
+      def html_source
+        session.visit(spec.url)
+        session.source
+      end
+
       def failed_examples
         examples.select { |example| not example.passed? }
       end

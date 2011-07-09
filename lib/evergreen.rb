@@ -1,5 +1,6 @@
 require 'rubygems'
 require 'sinatra/base'
+require 'sinatra/content_for2'
 require 'capybara'
 require 'launchy'
 require 'evergreen/version'
@@ -24,6 +25,11 @@ module Evergreen
     def extensions(&block)
       @extensions = block if block
       @extensions
+    end
+
+    def before_each(&block)
+      @before_each = block if block
+      @before_each
     end
 
     def use_defaults!

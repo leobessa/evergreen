@@ -36,6 +36,15 @@ describe Evergreen::Runner do
   context "with modified setup" do
     let(:root) { File.expand_path('suite2', File.dirname(__FILE__)) }
 
+    context "with any spec" do
+      let(:template) { 'awesome_spec.js' }
+      it "should include html_spec_helper contents" do
+        runner = Evergreen::Runner.new(subject.suite, StringIO.new)
+        source = runner.spec_runner(subject).html_source
+        source.should include "<p>html_spec_helper content</p>"
+      end
+    end
+
     context "with awesome spec" do
       let(:template) { 'awesome_spec.js' }
       it { should pass }
