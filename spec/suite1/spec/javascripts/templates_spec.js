@@ -1,10 +1,10 @@
-require('/jquery.js');
-stylesheet('/styles.css')
+Evergreen.require('/jquery.js');
+Evergreen.stylesheet('/styles.css')
 
 describe('templates', function() {
 
   describe('with template', function() {
-    template('one_template.html')
+    Evergreen.template('one_template.html')
 
     it("should append the template to the test div", function() {
       expect($('#test h1#from-template').length).toEqual(1);
@@ -26,7 +26,7 @@ describe('templates', function() {
   });
 
   describe('with another template', function() {
-    template('another_template.html')
+    Evergreen.template('another_template.html')
 
     it("should append the template to the test div", function() {
       expect($('#test h1#another-template').length).toEqual(1);
@@ -34,7 +34,7 @@ describe('templates', function() {
   });
 
   describe('with template with script tags', function() {
-    template('script_tags.html')
+    Evergreen.template('script_tags.html')
 
     it("should append the template to the test div", function() {
       expect($('#test h1#script-tags').length).toEqual(1);
@@ -44,7 +44,7 @@ describe('templates', function() {
 });
 
 describe('stylesheet', function() {
-  template('one_template.html')
+  Evergreen.template('one_template.html')
 
   it("should style the template", function() {
     // Env-js does not have support for stylesheets

@@ -1,4 +1,4 @@
-require('/implementation.js')
+Evergreen.require('/implementation.js')
 
 describe('with no tokens', function () {
   it("should return an empty string if an empty string is given", function() {

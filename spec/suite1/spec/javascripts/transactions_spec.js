@@ -1,4 +1,4 @@
-require('/jquery.js');
+Evergreen.require('/jquery.js');
 
 describe('transactions', function() {
 
